@@ -1,0 +1,217 @@
+/* For firefox in order to have the blur effect the following settings must be set
+
+layout.css.backdrop-filter.enabled > set to true
+gfx.webrender.all preferences > set to true
+
+under > about:config */
+
+/* Note to self: margin: top right bottom left */
+
+/* :root{
+    --bgc: rgba(30, 30, 30, 0.7);
+    --txtc: white;
+    --hgc2: #fdff53;
+    --hgc1: #ff9fd5;
+    --lkc: #a9fffe;
+    --brr: 10px;
+    --img: url(images/ori-toor_lush-harajuku_00.png);
+} */
+
+:root{
+    --bgc: rgba(21, 18, 28, 0.8);
+    --txtc: #DFDEF1;
+    --hgc1: #E38C8F;
+    --hgc2: #ECDDAA;
+    --lkc: #61c2a1;
+    --brr: 10px;
+    --img: url(images/placeholder.png);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    height: 100vh;
+    width: 100vw;
+}
+
+body{
+    height: 100%;
+    width: 100%;
+
+    position: absolute;
+
+    background-image: var(--img);
+    background-size: 115%;
+    background-position: center center;
+    
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg_blur{
+    height: 100%;
+    width: 100%;
+    min-height: 700px;
+
+    position: absolute;
+
+    background-color: rgba(21, 18, 28, 0.6);
+    backdrop-filter: blur(15px);
+
+    z-index: -1;
+}
+
+.grid_container{
+    height: auto;
+    width: auto;
+
+    position: absolute;
+
+    display: grid;
+    grid-template-areas:
+        "image clock"
+        "image main-links"
+        "image main-links"
+        "sub-links sub-links";
+    grid-template-columns: 470px 600px;
+    grid-template-rows: repeat(4,150px);
+    grid-gap: 10px;
+}
+
+.grid_container > div, img{
+    border-radius: var(--brr);
+
+    background-color: var(--bgc);
+    backdrop-filter: blur(10px);
+}
+
+/* Image attributes */
+.image{
+    grid-area: image;
+
+    background-image: var(--img);
+    background-size: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+/* Clock attributes */
+.clock{
+    grid-area: clock;
+
+    display: flex;
+    flex-flow: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.clock_time{
+    display: flex;
+    flex-flow: row;
+
+    font-size: 175%;
+    color: var(--txtc);
+}
+
+#js_time{
+    letter-spacing: 7.5px;
+}
+
+#js_ampm{
+    font-size: 50%;
+    color: var(--hgc2);
+}
+
+.clock_date{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 125%;
+    color: var(--txtc);
+}
+
+hr{
+    width: 100px;
+    height: 2.5px;
+
+    margin: 10px 0px;
+
+    background-color: var(--hgc1);
+    color: var(--hgc1);
+}
+
+.clock_date h2{
+    letter-spacing: 1px;
+    font-weight: lighter;
+}
+
+.clock_date h3{
+    letter-spacing: 1px;
+    font-weight: bolder;
+}
+
+/* Main links attributes */
+.main_links{
+    grid-area: main-links;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: baseline;
+
+    color: var(--txtc);
+}
+
+.ml_content{
+    display: flex;
+    flex-flow: column;
+    margin-top: 30px;
+}
+
+/* Sub links attributes */
+.sub_links{
+    grid-area: sub-links;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: baseline;
+
+    color: var(--txtc);
+}
+
+.sl_content{
+    display: flex;
+    flex-flow: column;
+    margin-top: 30px;
+}
+
+/* All links attributes */
+.ml_content h2, .sub_links h2{
+    border-bottom: 2px solid;
+    border-color: var(--hgc1);
+}
+
+.ml_content p, .sl_content p{
+    margin: 7.5px 0px 7.5px 15px;
+
+    color: var(--hgc2);
+}
+
+.ml_content a, .sl_content a{
+    margin-left: 15px;
+
+    text-decoration: none;
+    color: var(--txtc);
+}
+
+.ml_content a:hover, .sl_content a:hover{
+    color: var(--lkc);
+}

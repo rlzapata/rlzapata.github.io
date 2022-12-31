@@ -1,0 +1,193 @@
+:root{
+    --c_base        : rgb(30, 30, 46);
+    --c_crust       : rgb(17, 17, 27);
+    --c_mantle      : rgb(24, 24, 37);
+    --c_text        : rgb(205, 214, 244);
+    --c_subtext     : rgb(186, 194, 222);
+    --c_red         : rgb(243, 139, 168);
+    --c_green       : rgb(166, 227, 161);
+    --c_blue        : rgb(137, 180, 250);
+    --c_yellow      : rgb(249, 226, 175);
+    --c_rosewater   : rgb(245, 224, 220);
+    --c_flamingo    : rgb(242, 205, 205);
+    --c_mauve       : rgb(203, 166, 247);
+    --c_peach       : rgb(250, 179, 135);
+    --c_teal        : rgb(148, 226, 213);
+
+    --c_crust_trans : rgba(17, 17, 27, 0.8);
+
+    --blur_value    : 20px;
+    --border_radius : 20px;
+    --background_image: url(image.jpg);
+}
+
+/* --- General attributes --- */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100%;
+    width: 100%;
+
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: var(--c_text);
+
+    background-size: 150%;
+    /* background-repeat: no-repeat; */
+    background-position: center center;
+    background-image: var(--background_image);
+}
+
+a{
+    color: var(--c_text);
+    text-decoration: none;
+    font-weight: normal;
+}
+a:hover{
+    color: var(--c_red);
+}
+
+/* --- Specific attributes --- */
+.background-blur{
+    height: 100vh;
+    width: 100%;
+
+    background-color: var(--c_crust_trans);
+    backdrop-filter: blur(var(--blur_value));
+}
+
+.flexbox-main{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 70%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 50px;
+
+    background-color: var(--c_crust);
+    border-radius: var(--border_radius);
+}
+
+    .fm-item{
+        min-height: 700px;
+        margin: 10px;
+        border-radius: var(--border_radius);
+    }
+
+    .fm-image{
+        width: 60%;
+
+        background-size: 100vh;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-image: var(--background_image);
+    }
+
+    .fm-content{
+        min-width: 40%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        background-color: var(--c_mantle);
+    }
+
+        .fmc-clock{
+            padding-top: 25px;
+            padding-bottom: 25px;
+
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+
+            color: var(--c_yellow);
+        }
+
+            .fmc-clock h1{
+                font-size: 4em;
+                letter-spacing: 10px;
+            }
+            .fmc-clock h2{
+                font-size: 2.5em;
+                font-weight: bold;
+            }
+            #js_ampm{
+                font-weight: lighter;
+                color: var(--c_mauve);
+            }
+            .fmc-clock h3{
+                font-size: 1.5em;
+                font-weight: light;
+                letter-spacing: 2px;
+                color: var(--c_mauve);
+            }
+
+            .fmc-clock-date{
+                text-align: right;
+            }
+
+        .fmc-links{
+            flex-grow: 1;
+
+            padding-top: 25px;
+            padding-left: 25px;
+
+            border-radius: var(--border_radius);
+            background-color: var(--c_base);
+        }
+
+            .fmc-container{
+                margin-top: 10px;
+                /* background-color: var(--c_flamingo); */
+            }
+
+                .fmc-container h2{
+                    color: var(--c_peach);
+                }
+                .fmc-container hr{
+                    width: 100%;
+
+                    /* margin-left: 50px; */
+                    margin-top: 5px;
+                    margin-bottom: 5px;
+
+                    color: var(--c_blue);
+                }
+
+                .fmc-container-items{
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: flex-start;
+
+                    margin-left: 10px;
+                    /* background-color: var(--c_green); */
+                }
+
+                    .fmc-container-items p{
+                        margin: 10px;
+
+                        font-weight: bold;
+                        color: var(--c_teal);
+                        /* background-color: var(--c_red); */
+                    }
+                        #sub-point{
+                            color: var(--c_green);
+                        }
+                        #sub-point a{
+                            color: var(--c_subtext);
+                        }
+                        #sub-point a:hover{
+                            color: var(--c_green);
+                        }
